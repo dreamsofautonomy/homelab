@@ -30,6 +30,6 @@
 	            ./configuration.nix
 	          ];
         };
-    }));
+    }) nodes);
   };
 }
