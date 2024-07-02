@@ -50,15 +50,15 @@
     enable = true;
     role = "server";
     tokenFile = ./token.txt;
-    extraFlags = toString [
-	"--write-kubeconfig-mode \"0644\""
-	"--cluster-init"
-	"--disable servicelb"
-	"--disable traefik"
-	"--disable localstorage"
-	"--server homelab-0"
-    	# "--kubelet-arg=v=4" # Optionally add additional args to k3s
-    ];
+    extraFlags = toString ([
+	    "--write-kubeconfig-mode \"0644\""
+	    "--cluster-init"
+	    "--disable servicelb"
+	    "--disable traefik"
+	    "--disable localstorage"
+    ] ++ (if meta.hostname == "homelab-0" then [] else [
+	      "--server homelab-0"
+    ]));
     clusterInit = (meta.hostname == "homelab-0");
   };
 
@@ -89,7 +89,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     neovim k3s
+     neovim
+     k3s
+     cifs-utils
+     git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
