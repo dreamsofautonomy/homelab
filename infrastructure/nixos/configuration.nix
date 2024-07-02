@@ -57,7 +57,7 @@
 	    "--disable traefik"
 	    "--disable localstorage"
     ] ++ (if meta.hostname == "homelab-0" then [] else [
-	      "--server homelab-0"
+	      "--server https://homelab-0"
     ]));
     clusterInit = (meta.hostname == "homelab-0");
   };
