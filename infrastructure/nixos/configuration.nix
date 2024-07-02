@@ -49,7 +49,7 @@
   services.k3s = {
     enable = true;
     role = "server";
-    token = [(builtins.readFile ./token.txt)];
+    token = (builtins.readFile ./token.txt);
     extraFlags = toString [
 	"--write-kubeconfig-mode \"0644\""
 	"--cluster-init"
