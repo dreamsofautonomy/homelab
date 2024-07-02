@@ -59,7 +59,7 @@
 	"--server homelab-0"
     	# "--kubelet-arg=v=4" # Optionally add additional args to k3s
     ];
-    cluster-init = (meta.hostname == "homelab-0")
+    cluster-init = (meta.hostname == "homelab-0");
   };
 
   # Enable CUPS to print documents.
