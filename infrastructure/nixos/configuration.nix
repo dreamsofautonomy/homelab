@@ -40,6 +40,12 @@
     #useXkbConfig = true; # use xkb.options in tty.
   };
 
+  # Fixes for longhorn
+  systemd.tmpfiles.rules = [
+    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
+  ];
+  virtualisation.docker.logDriver = "json-file";
+
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -57,9 +63,14 @@
 	    "--disable traefik"
 	    "--disable localstorage"
     ] ++ (if meta.hostname == "homelab-0" then [] else [
-	      "--server https://homelab-0"
+	      "--server https://homelab-0:6443"
     ]));
     clusterInit = (meta.hostname == "homelab-0");
+  };
+
+  services.openiscsi = {
+    enable = true;
+    name = "iqn.2016-04.com.open-iscsi:${meta.hostname}";
   };
 
   # Enable CUPS to print documents.
