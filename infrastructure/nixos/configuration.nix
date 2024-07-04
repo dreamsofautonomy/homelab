@@ -61,7 +61,7 @@
 	    "--cluster-init"
 	    "--disable servicelb"
 	    "--disable traefik"
-	    "--disable localstorage"
+	    "--disable local-storage"
     ] ++ (if meta.hostname == "homelab-0" then [] else [
 	      "--server https://homelab-0:6443"
     ]));
