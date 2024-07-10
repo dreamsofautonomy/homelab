@@ -103,6 +103,7 @@
      neovim
      k3s
      cifs-utils
+     nfs-utils
      git
   ];
 
