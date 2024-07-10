@@ -1,0 +1,20 @@
+---
+DNS1:
+  192.168.0.1
+persistentVolumeClaim:
+  enabled: true
+ingress:
+  enabled: true
+  hosts:
+    - "pihole.home"
+serviceWeb:
+  loadBalancerIP: 192.168.1.250
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+serviceDns:
+  loadBalancerIP: 192.168.1.250
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+replicaCount: 1
