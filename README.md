@@ -14,6 +14,7 @@ To use this, you'll need the following installed on your sysetm
 - helm
 - git
 
+Additionally, you'll also want to make changes to the user information found in the `nixos/configuration.nix`
 
 ## nixos
 
