@@ -1,6 +1,6 @@
 # Homelab
 
-This is the companion configuration that goes with the video from [Dreams of autonomy](https://youtu.be/2yplBzPCghA).
+This is the companion configuration that goes with the video from [Dreams of Autonomy](https://youtu.be/2yplBzPCghA).
 
 This project is split into different directories depending on each service used.
 
