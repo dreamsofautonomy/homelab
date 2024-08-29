@@ -4,6 +4,7 @@ DNS1:
 persistentVolumeClaim:
   enabled: true
 ingress:
+  ingressClassName: nginx-internal
   enabled: true
   hosts:
     - "pihole.home"
